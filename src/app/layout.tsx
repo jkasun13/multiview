@@ -39,7 +39,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${poppins.variable} h-full`}>
+    <html lang="en" className={`${poppins.variable} h-full`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col bg-white text-gray-900 antialiased">
         <Header />
         <BreakingNewsBanner />

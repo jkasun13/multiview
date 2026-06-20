@@ -31,7 +31,7 @@ export default function StoryCard({ story, index = 0 }: { story: Story; index?: 
             }`}
         >
           {/* Image */}
-          <div className="aspect-[16/9] overflow-hidden bg-gray-100 relative">
+          <div className="aspect-[16/9] overflow-hidden bg-gray-100 relative" suppressHydrationWarning>
             <Image
               src={story.imageUrl}
               alt={story.title}

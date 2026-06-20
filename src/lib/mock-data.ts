@@ -11,7 +11,7 @@ export const MOCK_STORIES: Story[] = [
     isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80",
-    publishedRange: { from: "2024-11-15T10:00:00Z", to: "2024-11-15T18:30:00Z" },
+    publishedRange: { from: "2025-06-10T10:00:00Z", to: "2025-06-10T18:30:00Z" },
     sources: [
       {
         id: "src-001-1",
@@ -66,7 +66,7 @@ export const MOCK_STORIES: Story[] = [
     isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80",
-    publishedRange: { from: "2024-11-14T09:00:00Z", to: "2024-11-14T22:00:00Z" },
+    publishedRange: { from: "2025-06-11T09:00:00Z", to: "2025-06-11T22:00:00Z" },
     sources: [
       {
         id: "src-002-1",
@@ -121,7 +121,7 @@ export const MOCK_STORIES: Story[] = [
     isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80",
-    publishedRange: { from: "2024-11-13T08:00:00Z", to: "2024-11-13T20:00:00Z" },
+    publishedRange: { from: "2025-06-09T08:00:00Z", to: "2025-06-09T20:00:00Z" },
     sources: [
       {
         id: "src-003-1",
@@ -171,12 +171,12 @@ export const MOCK_STORIES: Story[] = [
     title: "Senate Passes Sweeping Immigration Reform Bill",
     summary:
       "The Senate approved a bipartisan immigration reform package that includes a path to citizenship for undocumented immigrants and increased border security funding.",
-    category: "politics",
-    region: "lk" as const,
+    category: "world",
+    region: "world" as const,
     isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800&q=80",
-    publishedRange: { from: "2024-11-12T14:00:00Z", to: "2024-11-12T23:00:00Z" },
+    publishedRange: { from: "2025-06-08T14:00:00Z", to: "2025-06-08T23:00:00Z" },
     sources: [
       {
         id: "src-004-1",
@@ -231,7 +231,7 @@ export const MOCK_STORIES: Story[] = [
     isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
-    publishedRange: { from: "2024-11-11T07:00:00Z", to: "2024-11-11T19:00:00Z" },
+    publishedRange: { from: "2025-06-07T07:00:00Z", to: "2025-06-07T19:00:00Z" },
     sources: [
       {
         id: "src-005-1",
@@ -276,7 +276,7 @@ export const MOCK_STORIES: Story[] = [
     isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?w=800&q=80",
-    publishedRange: { from: "2024-11-10T16:00:00Z", to: "2024-11-10T22:00:00Z" },
+    publishedRange: { from: "2025-06-05T16:00:00Z", to: "2025-06-05T22:00:00Z" },
     sources: [
       {
         id: "src-006-1",
@@ -314,15 +314,15 @@ export const MOCK_STORIES: Story[] = [
   // --- NEW STORIES ---
   {
     id: "story-007",
-    title: "Supreme Court Hears Landmark Case on Social Media and Free Speech",
+    title: "US Supreme Court Hears Landmark Case on Social Media and Free Speech",
     summary:
-      "The Supreme Court heard oral arguments in a pivotal case that could reshape the legal relationship between the First Amendment and social media content moderation.",
-    category: "politics",
-    region: "lk" as const,
+      "The US Supreme Court heard oral arguments in a pivotal case that could reshape the legal relationship between the First Amendment and social media content moderation.",
+    category: "world",
+    region: "world" as const,
     isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80",
-    publishedRange: { from: "2024-11-09T09:00:00Z", to: "2024-11-09T21:00:00Z" },
+    publishedRange: { from: "2025-06-04T09:00:00Z", to: "2025-06-04T21:00:00Z" },
     sources: [
       {
         id: "src-007-1",
@@ -377,7 +377,7 @@ export const MOCK_STORIES: Story[] = [
     isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
-    publishedRange: { from: "2024-11-08T08:00:00Z", to: "2024-11-08T20:00:00Z" },
+    publishedRange: { from: "2025-06-06T08:00:00Z", to: "2025-06-06T20:00:00Z" },
     sources: [
       {
         id: "src-008-1",
@@ -422,7 +422,7 @@ export const MOCK_STORIES: Story[] = [
     isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80",
-    publishedRange: { from: "2024-11-07T06:00:00Z", to: "2024-11-07T22:00:00Z" },
+    publishedRange: { from: "2025-06-03T06:00:00Z", to: "2025-06-03T22:00:00Z" },
     sources: [
       {
         id: "src-009-1",
@@ -477,7 +477,7 @@ export const MOCK_STORIES: Story[] = [
     isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
-    publishedRange: { from: "2024-11-06T08:00:00Z", to: "2024-11-06T18:00:00Z" },
+    publishedRange: { from: "2025-06-02T08:00:00Z", to: "2025-06-02T18:00:00Z" },
     sources: [
       {
         id: "src-010-1",
@@ -522,7 +522,7 @@ export const MOCK_STORIES: Story[] = [
     isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80",
-    publishedRange: { from: "2024-11-05T07:00:00Z", to: "2024-11-05T19:00:00Z" },
+    publishedRange: { from: "2025-06-01T07:00:00Z", to: "2025-06-01T19:00:00Z" },
     sources: [
       {
         id: "src-011-1",
@@ -567,7 +567,7 @@ export const MOCK_STORIES: Story[] = [
     isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1646625978965-a70f97875a42?w=800&q=80",
-    publishedRange: { from: "2024-11-04T06:00:00Z", to: "2024-11-04T22:00:00Z" },
+    publishedRange: { from: "2025-05-31T06:00:00Z", to: "2025-05-31T22:00:00Z" },
     sources: [
       {
         id: "src-012-1",
@@ -622,7 +622,7 @@ export const MOCK_STORIES: Story[] = [
     isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80",
-    publishedRange: { from: "2024-11-03T08:00:00Z", to: "2024-11-03T20:00:00Z" },
+    publishedRange: { from: "2025-05-30T08:00:00Z", to: "2025-05-30T20:00:00Z" },
     sources: [
       {
         id: "src-013-1",
@@ -667,7 +667,7 @@ export const MOCK_STORIES: Story[] = [
     isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?w=800&q=80",
-    publishedRange: { from: "2024-11-02T10:00:00Z", to: "2024-11-02T22:00:00Z" },
+    publishedRange: { from: "2025-05-29T10:00:00Z", to: "2025-05-29T22:00:00Z" },
     sources: [
       {
         id: "src-014-1",
@@ -707,12 +707,12 @@ export const MOCK_STORIES: Story[] = [
     title: "NBA Season Opens Amid Player Load Management Controversy",
     summary:
       "The NBA season tipped off with renewed debate over star players sitting out games for rest, as the league's new rules aimed at curbing load management face their first real test.",
-    category: "sports",
-    region: "lk" as const,
+    category: "entertainment",
+    region: "world" as const,
     isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&q=80",
-    publishedRange: { from: "2024-11-01T15:00:00Z", to: "2024-11-01T23:00:00Z" },
+    publishedRange: { from: "2025-05-28T15:00:00Z", to: "2025-05-28T23:00:00Z" },
     sources: [
       {
         id: "src-015-1",
@@ -757,7 +757,7 @@ export const MOCK_STORIES: Story[] = [
     isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80",
-    publishedRange: { from: "2024-10-31T10:00:00Z", to: "2024-10-31T22:00:00Z" },
+    publishedRange: { from: "2025-05-27T10:00:00Z", to: "2025-05-27T22:00:00Z" },
     sources: [
       {
         id: "src-016-1",

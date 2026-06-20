@@ -1,4 +1,4 @@
-import type { Story, AIAnalysis } from "@/types";
+﻿import type { Story, AIAnalysis } from "@/types";
 
 export const MOCK_STORIES: Story[] = [
   {
@@ -7,6 +7,8 @@ export const MOCK_STORIES: Story[] = [
     summary:
       "The Federal Reserve announced it would maintain current interest rates, citing mixed economic signals including persistent inflation and a cooling job market.",
     category: "business",
+    region: "world" as const,
+    isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80",
     publishedRange: { from: "2024-11-15T10:00:00Z", to: "2024-11-15T18:30:00Z" },
@@ -25,7 +27,7 @@ export const MOCK_STORIES: Story[] = [
         id: "src-001-2",
         outlet: "Fox Business",
         outletDomain: "foxbusiness.com",
-        headline: "Fed freezes rates again — inflation fight not over, Powell warns",
+        headline: "Fed freezes rates again â€” inflation fight not over, Powell warns",
         snippet: "The Federal Reserve once again refused to cut interest rates, with Jerome Powell warning that inflation remains too high and the central bank will not rush to ease policy.",
         url: "https://foxbusiness.com",
         publishedAt: "2024-11-15T11:15:00Z",
@@ -60,6 +62,8 @@ export const MOCK_STORIES: Story[] = [
     summary:
       "A leading artificial intelligence company unveiled a new model it claims surpasses human performance on several benchmark reasoning tasks, reigniting debates about AGI timelines.",
     category: "technology",
+    region: "world" as const,
+    isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80",
     publishedRange: { from: "2024-11-14T09:00:00Z", to: "2024-11-14T22:00:00Z" },
@@ -68,7 +72,7 @@ export const MOCK_STORIES: Story[] = [
         id: "src-002-1",
         outlet: "The Verge",
         outletDomain: "theverge.com",
-        headline: "New AI model claims human-level reasoning — researchers are skeptical",
+        headline: "New AI model claims human-level reasoning â€” researchers are skeptical",
         snippet: "The company's announcement was met with excitement from investors and skepticism from independent AI researchers who questioned the methodology behind the benchmark scores.",
         url: "https://theverge.com",
         publishedAt: "2024-11-14T09:00:00Z",
@@ -78,7 +82,7 @@ export const MOCK_STORIES: Story[] = [
         id: "src-002-2",
         outlet: "Wired",
         outletDomain: "wired.com",
-        headline: "The AI reasoning revolution is here — or is it?",
+        headline: "The AI reasoning revolution is here â€” or is it?",
         snippet: "Wired examines what human-level reasoning actually means and why benchmark performance may not translate to real-world intelligence.",
         url: "https://wired.com",
         publishedAt: "2024-11-14T11:30:00Z",
@@ -113,6 +117,8 @@ export const MOCK_STORIES: Story[] = [
     summary:
       "Delegates from 190 countries reached a historic accord committing to phase out fossil fuels over the next two decades, though critics argue the timeline is insufficient.",
     category: "world",
+    region: "world" as const,
+    isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80",
     publishedRange: { from: "2024-11-13T08:00:00Z", to: "2024-11-13T20:00:00Z" },
@@ -122,7 +128,7 @@ export const MOCK_STORIES: Story[] = [
         outlet: "The Guardian",
         outletDomain: "theguardian.com",
         headline: "Climate deal 'too little, too late' say scientists as summit wraps",
-        snippet: "Environmental scientists and activist groups expressed disappointment with the 20-year phase-out timeline, arguing it falls far short of what is needed to limit warming to 1.5°C.",
+        snippet: "Environmental scientists and activist groups expressed disappointment with the 20-year phase-out timeline, arguing it falls far short of what is needed to limit warming to 1.5Â°C.",
         url: "https://theguardian.com",
         publishedAt: "2024-11-13T10:00:00Z",
         tone: "critical",
@@ -166,6 +172,8 @@ export const MOCK_STORIES: Story[] = [
     summary:
       "The Senate approved a bipartisan immigration reform package that includes a path to citizenship for undocumented immigrants and increased border security funding.",
     category: "politics",
+    region: "lk" as const,
+    isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800&q=80",
     publishedRange: { from: "2024-11-12T14:00:00Z", to: "2024-11-12T23:00:00Z" },
@@ -194,7 +202,7 @@ export const MOCK_STORIES: Story[] = [
         id: "src-004-3",
         outlet: "New York Times",
         outletDomain: "nytimes.com",
-        headline: "What's in the Senate immigration bill — and who it helps",
+        headline: "What's in the Senate immigration bill â€” and who it helps",
         snippet: "A breakdown of the major provisions: a 10-year path to citizenship for DACA recipients, expanded H-1B caps, and $12 billion for border infrastructure.",
         url: "https://nytimes.com",
         publishedAt: "2024-11-12T17:00:00Z",
@@ -219,6 +227,8 @@ export const MOCK_STORIES: Story[] = [
     summary:
       "A major pharmaceutical company reported positive Phase 3 trial results for a new Alzheimer's treatment, showing a significant slowdown in cognitive decline in early-stage patients.",
     category: "health",
+    region: "world" as const,
+    isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
     publishedRange: { from: "2024-11-11T07:00:00Z", to: "2024-11-11T19:00:00Z" },
@@ -262,6 +272,8 @@ export const MOCK_STORIES: Story[] = [
     summary:
       "SpaceX's Starship rocket completed its first fully successful integrated flight test, with both the Super Heavy booster and the upper stage vehicle returning safely.",
     category: "science",
+    region: "world" as const,
+    isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?w=800&q=80",
     publishedRange: { from: "2024-11-10T16:00:00Z", to: "2024-11-10T22:00:00Z" },
@@ -271,7 +283,7 @@ export const MOCK_STORIES: Story[] = [
         outlet: "Ars Technica",
         outletDomain: "arstechnica.com",
         headline: "Starship sticks the landing: a technical deep-dive",
-        snippet: "Ars Technica breaks down the engineering milestones — the chopstick catch attempt, the Raptor engine performance, and what it all means for Starship's path to orbit.",
+        snippet: "Ars Technica breaks down the engineering milestones â€” the chopstick catch attempt, the Raptor engine performance, and what it all means for Starship's path to orbit.",
         url: "https://arstechnica.com",
         publishedAt: "2024-11-10T16:00:00Z",
         tone: "favorable",
@@ -280,7 +292,7 @@ export const MOCK_STORIES: Story[] = [
         id: "src-006-2",
         outlet: "BBC Science",
         outletDomain: "bbc.com",
-        headline: "SpaceX Starship lands safely — why it matters for Moon and Mars missions",
+        headline: "SpaceX Starship lands safely â€” why it matters for Moon and Mars missions",
         snippet: "The BBC explains the significance of SpaceX's latest achievement for NASA's Artemis moon program and Elon Musk's long-term vision of Mars colonization.",
         url: "https://bbc.com",
         publishedAt: "2024-11-10T18:00:00Z",
@@ -306,6 +318,8 @@ export const MOCK_STORIES: Story[] = [
     summary:
       "The Supreme Court heard oral arguments in a pivotal case that could reshape the legal relationship between the First Amendment and social media content moderation.",
     category: "politics",
+    region: "lk" as const,
+    isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80",
     publishedRange: { from: "2024-11-09T09:00:00Z", to: "2024-11-09T21:00:00Z" },
@@ -335,7 +349,7 @@ export const MOCK_STORIES: Story[] = [
         outlet: "The Atlantic",
         outletDomain: "theatlantic.com",
         headline: "The Supreme Court case that could break the internet",
-        snippet: "If states can dictate what content platforms must carry, the resulting chaos could fundamentally alter how online speech works — for everyone.",
+        snippet: "If states can dictate what content platforms must carry, the resulting chaos could fundamentally alter how online speech works â€” for everyone.",
         url: "https://theatlantic.com",
         publishedAt: "2024-11-09T14:00:00Z",
         tone: "critical",
@@ -359,6 +373,8 @@ export const MOCK_STORIES: Story[] = [
     summary:
       "After three years of supply disruptions, new TSMC and Samsung fabs in the US and Europe are beginning to ease the global semiconductor shortage that hit automakers and electronics firms hardest.",
     category: "technology",
+    region: "world" as const,
+    isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
     publishedRange: { from: "2024-11-08T08:00:00Z", to: "2024-11-08T20:00:00Z" },
@@ -367,7 +383,7 @@ export const MOCK_STORIES: Story[] = [
         id: "src-008-1",
         outlet: "Bloomberg Technology",
         outletDomain: "bloomberg.com",
-        headline: "TSMC Arizona fab hits full production — what it means for chip supply",
+        headline: "TSMC Arizona fab hits full production â€” what it means for chip supply",
         snippet: "The $40 billion Arizona facility is producing 3nm chips at scale, a milestone that analysts say will meaningfully reduce US dependence on Taiwan for advanced semiconductors.",
         url: "https://bloomberg.com",
         publishedAt: "2024-11-08T08:00:00Z",
@@ -378,7 +394,7 @@ export const MOCK_STORIES: Story[] = [
         outlet: "The Economist",
         outletDomain: "economist.com",
         headline: "The chip shortage is ending, but at enormous cost to taxpayers",
-        snippet: "Governments have committed over $200 billion in subsidies to semiconductor manufacturing. The question is whether this industrial policy will pay off — or merely shift geopolitical risk.",
+        snippet: "Governments have committed over $200 billion in subsidies to semiconductor manufacturing. The question is whether this industrial policy will pay off â€” or merely shift geopolitical risk.",
         url: "https://economist.com",
         publishedAt: "2024-11-08T10:30:00Z",
         tone: "mixed",
@@ -402,6 +418,8 @@ export const MOCK_STORIES: Story[] = [
     summary:
       "The World Health Organization issued its highest alert level for a new, more transmissible strain of mpox spreading across Central and East Africa, calling for coordinated international response.",
     category: "health",
+    region: "world" as const,
+    isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80",
     publishedRange: { from: "2024-11-07T06:00:00Z", to: "2024-11-07T22:00:00Z" },
@@ -440,7 +458,7 @@ export const MOCK_STORIES: Story[] = [
         id: "src-009-4",
         outlet: "STAT News",
         outletDomain: "statnews.com",
-        headline: "What we know — and don't know — about mpox clade Ib",
+        headline: "What we know â€” and don't know â€” about mpox clade Ib",
         snippet: "Scientists are racing to characterize the new variant's transmissibility, severity, and vaccine effectiveness. Current data suggests existing vaccines still offer meaningful protection.",
         url: "https://statnews.com",
         publishedAt: "2024-11-07T18:00:00Z",
@@ -455,6 +473,8 @@ export const MOCK_STORIES: Story[] = [
     summary:
       "JPMorgan, Bank of America, and Goldman Sachs posted record quarterly profits, driven by elevated interest rates boosting lending income even as investment banking revenue lagged.",
     category: "business",
+    region: "world" as const,
+    isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
     publishedRange: { from: "2024-11-06T08:00:00Z", to: "2024-11-06T18:00:00Z" },
@@ -464,7 +484,7 @@ export const MOCK_STORIES: Story[] = [
         outlet: "Financial Times",
         outletDomain: "ft.com",
         headline: "Wall Street banks post record earnings as rate windfall continues",
-        snippet: "The big six US banks collectively earned more than $40 billion in the quarter, with net interest income — the spread between borrowing and lending rates — accounting for the bulk of gains.",
+        snippet: "The big six US banks collectively earned more than $40 billion in the quarter, with net interest income â€” the spread between borrowing and lending rates â€” accounting for the bulk of gains.",
         url: "https://ft.com",
         publishedAt: "2024-11-06T08:00:00Z",
         tone: "favorable",
@@ -498,6 +518,8 @@ export const MOCK_STORIES: Story[] = [
     summary:
       "Researchers at the University of Oxford announced early-stage clinical results for a gene therapy targeting age-related macular degeneration, the leading cause of blindness in adults over 50.",
     category: "science",
+    region: "world" as const,
+    isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80",
     publishedRange: { from: "2024-11-05T07:00:00Z", to: "2024-11-05T19:00:00Z" },
@@ -516,7 +538,7 @@ export const MOCK_STORIES: Story[] = [
         id: "src-011-2",
         outlet: "STAT News",
         outletDomain: "statnews.com",
-        headline: "Promising AMD gene therapy — but temper the excitement",
+        headline: "Promising AMD gene therapy â€” but temper the excitement",
         snippet: "Phase 1 trials are designed to test safety, not efficacy. The Oxford results are genuinely exciting but experts caution years of larger trials lie ahead before this reaches patients.",
         url: "https://statnews.com",
         publishedAt: "2024-11-05T10:00:00Z",
@@ -541,6 +563,8 @@ export const MOCK_STORIES: Story[] = [
     summary:
       "As the conflict enters its third year, Ukrainian forces are holding defensive lines amid fresh Russian offensives, while debates over continued Western military aid intensify in Washington and Brussels.",
     category: "world",
+    region: "world" as const,
+    isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1646625978965-a70f97875a42?w=800&q=80",
     publishedRange: { from: "2024-11-04T06:00:00Z", to: "2024-11-04T22:00:00Z" },
@@ -569,7 +593,7 @@ export const MOCK_STORIES: Story[] = [
         id: "src-012-3",
         outlet: "The Economist",
         outletDomain: "economist.com",
-        headline: "Ukraine is not losing — but it needs more than hope",
+        headline: "Ukraine is not losing â€” but it needs more than hope",
         snippet: "The Economist's analysis finds Ukraine's military situation is difficult but not dire, provided Western partners maintain ammunition supplies and air defence systems through 2025.",
         url: "https://economist.com",
         publishedAt: "2024-11-04T12:00:00Z",
@@ -594,6 +618,8 @@ export const MOCK_STORIES: Story[] = [
     summary:
       "Reports emerged that Apple's spatial computing headset is underperforming sales targets by a wide margin, with several major app developers quietly shelving Vision Pro projects.",
     category: "technology",
+    region: "world" as const,
+    isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80",
     publishedRange: { from: "2024-11-03T08:00:00Z", to: "2024-11-03T20:00:00Z" },
@@ -603,7 +629,7 @@ export const MOCK_STORIES: Story[] = [
         outlet: "Bloomberg",
         outletDomain: "bloomberg.com",
         headline: "Apple Vision Pro sales well below internal targets, sources say",
-        snippet: "Apple has sold fewer than 500,000 Vision Pro units since launch — a fraction of the 1 million units per quarter the company had privately projected, according to people familiar with the matter.",
+        snippet: "Apple has sold fewer than 500,000 Vision Pro units since launch â€” a fraction of the 1 million units per quarter the company had privately projected, according to people familiar with the matter.",
         url: "https://bloomberg.com",
         publishedAt: "2024-11-03T08:00:00Z",
         tone: "critical",
@@ -612,7 +638,7 @@ export const MOCK_STORIES: Story[] = [
         id: "src-013-2",
         outlet: "The Verge",
         outletDomain: "theverge.com",
-        headline: "The apps are leaving Vision Pro — here's why that matters",
+        headline: "The apps are leaving Vision Pro â€” here's why that matters",
         snippet: "Major developers including Netflix, YouTube, and Spotify have pulled or never launched Vision Pro apps. Without a compelling app ecosystem, the headset risks a slow death.",
         url: "https://theverge.com",
         publishedAt: "2024-11-03T10:30:00Z",
@@ -622,7 +648,7 @@ export const MOCK_STORIES: Story[] = [
         id: "src-013-3",
         outlet: "9to5Mac",
         outletDomain: "9to5mac.com",
-        headline: "Apple Vision Pro is a first-gen product — judge it like one",
+        headline: "Apple Vision Pro is a first-gen product â€” judge it like one",
         snippet: "Apple's history is full of products that looked like failures before becoming dominant platforms. Dismissing Vision Pro after one year ignores the long arc of Apple's platform plays.",
         url: "https://9to5mac.com",
         publishedAt: "2024-11-03T14:00:00Z",
@@ -637,6 +663,8 @@ export const MOCK_STORIES: Story[] = [
     summary:
       "G20 leaders endorsed a framework to implement a 15% global minimum corporate tax, a landmark in international tax policy aimed at ending the race to the bottom on corporate rates.",
     category: "business",
+    region: "world" as const,
+    isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?w=800&q=80",
     publishedRange: { from: "2024-11-02T10:00:00Z", to: "2024-11-02T22:00:00Z" },
@@ -680,6 +708,8 @@ export const MOCK_STORIES: Story[] = [
     summary:
       "The NBA season tipped off with renewed debate over star players sitting out games for rest, as the league's new rules aimed at curbing load management face their first real test.",
     category: "sports",
+    region: "lk" as const,
+    isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&q=80",
     publishedRange: { from: "2024-11-01T15:00:00Z", to: "2024-11-01T23:00:00Z" },
@@ -708,7 +738,7 @@ export const MOCK_STORIES: Story[] = [
         id: "src-015-3",
         outlet: "New York Post",
         outletDomain: "nypost.com",
-        headline: "Fans paid $400 a ticket to watch bench players — the NBA must act",
+        headline: "Fans paid $400 a ticket to watch bench players â€” the NBA must act",
         snippet: "The Post's sports desk argues that fans deserve to see the stars they paid to watch, and that the league's toothless enforcement is a betrayal of the paying customer.",
         url: "https://nypost.com",
         publishedAt: "2024-11-01T20:00:00Z",
@@ -723,6 +753,8 @@ export const MOCK_STORIES: Story[] = [
     summary:
       "The Writers Guild of America reached a deal with the major studios, securing minimum staffing requirements, streaming residuals, and the industry's first-ever contractual protections against AI replacing writers.",
     category: "entertainment",
+    region: "world" as const,
+    isBreaking: false,
     imageUrl:
       "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80",
     publishedRange: { from: "2024-10-31T10:00:00Z", to: "2024-10-31T22:00:00Z" },
@@ -731,7 +763,7 @@ export const MOCK_STORIES: Story[] = [
         id: "src-016-1",
         outlet: "Variety",
         outletDomain: "variety.com",
-        headline: "WGA deal: everything writers won — and what they gave up",
+        headline: "WGA deal: everything writers won â€” and what they gave up",
         snippet: "A detailed breakdown of the contract gains: minimum room staffing, improved streaming formulas, and AI provisions that prohibit studios from using AI to write or rewrite scripts without writer consent.",
         url: "https://variety.com",
         publishedAt: "2024-10-31T10:00:00Z",
@@ -741,7 +773,7 @@ export const MOCK_STORIES: Story[] = [
         id: "src-016-2",
         outlet: "The Hollywood Reporter",
         outletDomain: "hollywoodreporter.com",
-        headline: "Studios celebrated after WGA deal — here's why they won too",
+        headline: "Studios celebrated after WGA deal â€” here's why they won too",
         snippet: "While writers secured meaningful gains, the studios preserved flexibility on mini-rooms, avoided the most expensive residual formulas, and kept AI provisions narrower than the WGA initially sought.",
         url: "https://hollywoodreporter.com",
         publishedAt: "2024-10-31T13:00:00Z",
@@ -751,7 +783,7 @@ export const MOCK_STORIES: Story[] = [
         id: "src-016-3",
         outlet: "Wired",
         outletDomain: "wired.com",
-        headline: "The WGA's AI deal is a template — every industry should be watching",
+        headline: "The WGA's AI deal is a template â€” every industry should be watching",
         snippet: "The clause barring AI from writing or rewriting scripts is the first major labor contract to directly restrict AI substitution of human workers. Other unions are already taking notes.",
         url: "https://wired.com",
         publishedAt: "2024-10-31T16:00:00Z",
@@ -759,6 +791,298 @@ export const MOCK_STORIES: Story[] = [
       },
     ],
     tags: ["WGA", "Hollywood", "AI", "writers strike", "entertainment"],
+  },
+
+  // --- SRI LANKA POLITICS ---
+  {
+    id: "story-lk-p-001",
+    title: "Sri Lanka Parliament Passes Landmark Anti-Corruption Bill",
+    summary:
+      "The Sri Lankan Parliament approved sweeping anti-corruption legislation aimed at strengthening the powers of the Commission to Investigate Allegations of Bribery or Corruption (CIABOC), amid IMF reform pressure.",
+    category: "politics",
+    region: "lk" as const,
+    isBreaking: true,
+    imageUrl:
+      "https://images.unsplash.com/photo-1555848962-6e79363ec58f?w=800&q=80",
+    publishedRange: { from: "2024-11-16T08:00:00Z", to: "2024-11-16T18:00:00Z" },
+    sources: [
+      {
+        id: "src-lkp1-1",
+        outlet: "Daily Mirror Sri Lanka",
+        outletDomain: "dailymirror.lk",
+        headline: "Parliament passes Anti-Corruption Act with bipartisan support",
+        snippet:
+          "MPs from both the ruling NPP and opposition parties backed the bill, described as a critical step toward meeting IMF governance benchmarks tied to the country's $2.9 billion bailout program.",
+        url: "https://dailymirror.lk",
+        publishedAt: "2024-11-16T08:00:00Z",
+        tone: "favorable",
+      },
+      {
+        id: "src-lkp1-2",
+        outlet: "Colombo Gazette",
+        outletDomain: "colombogazette.com",
+        headline: "Anti-corruption bill passes — but activists say it lacks teeth",
+        snippet:
+          "Civil society organisations expressed cautious welcome but noted that the bill's whistleblower protection clauses were significantly watered down during the committee stage.",
+        url: "https://colombogazette.com",
+        publishedAt: "2024-11-16T10:30:00Z",
+        tone: "mixed",
+      },
+      {
+        id: "src-lkp1-3",
+        outlet: "The Island",
+        outletDomain: "island.lk",
+        headline: "SL parliament signals reform intent with CIABOC overhaul",
+        snippet:
+          "The Island's parliamentary correspondent analyses how the new act restructures CIABOC's independence, prosecution powers, and asset disclosure requirements for public officials.",
+        url: "https://island.lk",
+        publishedAt: "2024-11-16T12:00:00Z",
+        tone: "neutral",
+      },
+      {
+        id: "src-lkp1-4",
+        outlet: "BBC Sinhala",
+        outletDomain: "bbc.com",
+        headline: "Sri Lanka anti-graft law: what it means for ordinary citizens",
+        snippet:
+          "BBC Sinhala breaks down the legislation's real-world impact — from how citizens can report corruption to what penalties officials now face.",
+        url: "https://bbc.com",
+        publishedAt: "2024-11-16T15:00:00Z",
+        tone: "neutral",
+      },
+    ],
+    tags: ["sri lanka", "parliament", "anti-corruption", "IMF", "politics"],
+  },
+  {
+    id: "story-lk-p-002",
+    title: "President Dissanayake Announces Cabinet Reshuffle Amid Economic Recovery Push",
+    summary:
+      "Sri Lankan President Anura Kumara Dissanayake reshuffled the cabinet, appointing new ministers to key economic portfolios as the government accelerates its post-crisis recovery strategy under the IMF program.",
+    category: "politics",
+    region: "lk" as const,
+    isBreaking: false,
+    imageUrl:
+      "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800&q=80",
+    publishedRange: { from: "2024-11-14T09:00:00Z", to: "2024-11-14T20:00:00Z" },
+    sources: [
+      {
+        id: "src-lkp2-1",
+        outlet: "Colombo Gazette",
+        outletDomain: "colombogazette.com",
+        headline: "President reshuffles cabinet, focuses on economic revival",
+        snippet:
+          "Key changes include a new Finance Minister with a private sector background and a restructured Ministry of Tourism, signalling the government's pivot to revenue generation.",
+        url: "https://colombogazette.com",
+        publishedAt: "2024-11-14T09:00:00Z",
+        tone: "neutral",
+      },
+      {
+        id: "src-lkp2-2",
+        outlet: "Ceylon Today",
+        outletDomain: "ceylontoday.lk",
+        headline: "Opposition slams reshuffle as 'musical chairs without substance'",
+        snippet:
+          "Opposition leader Sajith Premadasa criticised the cabinet changes, arguing the same NPP inner circle remains in charge and no genuine expertise has been brought in.",
+        url: "https://ceylontoday.lk",
+        publishedAt: "2024-11-14T12:00:00Z",
+        tone: "critical",
+      },
+      {
+        id: "src-lkp2-3",
+        outlet: "Reuters",
+        outletDomain: "reuters.com",
+        headline: "Sri Lanka cabinet change aims to accelerate IMF reforms",
+        snippet:
+          "International analysts say the reshuffle reflects pressure from the IMF and bilateral creditors to demonstrate governance reforms ahead of the fourth programme review.",
+        url: "https://reuters.com",
+        publishedAt: "2024-11-14T16:00:00Z",
+        tone: "neutral",
+      },
+    ],
+    tags: ["sri lanka", "cabinet", "Dissanayake", "IMF", "economy"],
+  },
+  {
+    id: "story-lk-p-003",
+    title: "Sri Lanka's IMF Bailout Fourth Review: What's at Stake",
+    summary:
+      "With Sri Lanka's fourth IMF programme review approaching, analysts assess the country's progress on fiscal targets, debt restructuring, and structural reforms required to unlock the next tranche.",
+    category: "politics",
+    region: "lk" as const,
+    isBreaking: false,
+    imageUrl:
+      "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80",
+    publishedRange: { from: "2024-11-12T07:00:00Z", to: "2024-11-12T19:00:00Z" },
+    sources: [
+      {
+        id: "src-lkp3-1",
+        outlet: "The Island",
+        outletDomain: "island.lk",
+        headline: "Fourth IMF review: targets met on paper, doubts remain on delivery",
+        snippet:
+          "Economists warn that while headline fiscal numbers may satisfy IMF criteria, structural reforms in state-owned enterprises and tax administration are lagging.",
+        url: "https://island.lk",
+        publishedAt: "2024-11-12T07:00:00Z",
+        tone: "mixed",
+      },
+      {
+        id: "src-lkp3-2",
+        outlet: "Daily FT",
+        outletDomain: "ft.lk",
+        headline: "Sri Lanka on track for IMF review, Treasury says",
+        snippet:
+          "The Finance Ministry issued a statement citing primary surplus targets and revenue collection figures as evidence of compliance with programme benchmarks.",
+        url: "https://ft.lk",
+        publishedAt: "2024-11-12T10:00:00Z",
+        tone: "favorable",
+      },
+      {
+        id: "src-lkp3-3",
+        outlet: "Financial Times",
+        outletDomain: "ft.com",
+        headline: "Sri Lanka's debt deal progress opens door for next IMF tranche",
+        snippet:
+          "Agreements with bilateral creditors Japan, India, and the Paris Club-aligned nations have cleared a key hurdle, though bondholder negotiations remain ongoing.",
+        url: "https://ft.com",
+        publishedAt: "2024-11-12T15:00:00Z",
+        tone: "favorable",
+      },
+    ],
+    tags: ["sri lanka", "IMF", "economy", "debt", "fiscal"],
+  },
+
+  // --- SRI LANKA SPORTS ---
+  {
+    id: "story-lk-s-001",
+    title: "Sri Lanka Cricket Stuns Australia in ICC Champions Trophy Opener",
+    summary:
+      "Sri Lanka recorded a stunning 47-run upset victory over Australia in the ICC Champions Trophy opening match, with spinner Wanindu Hasaranga taking five wickets to skittle the defending champions.",
+    category: "sports",
+    region: "lk" as const,
+    isBreaking: true,
+    imageUrl:
+      "https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=800&q=80",
+    publishedRange: { from: "2024-11-15T13:00:00Z", to: "2024-11-15T22:00:00Z" },
+    sources: [
+      {
+        id: "src-lks1-1",
+        outlet: "Daily Mirror Sri Lanka",
+        outletDomain: "dailymirror.lk",
+        headline: "Lanka lions roar! Hasaranga five-for sinks Australia",
+        snippet:
+          "A nation erupted in celebration as Sri Lanka's spinners dismantled Australia's batting lineup, sealing a remarkable victory that signals the team's resurgence under new coach Sanath Jayasuriya.",
+        url: "https://dailymirror.lk",
+        publishedAt: "2024-11-15T13:00:00Z",
+        tone: "favorable",
+      },
+      {
+        id: "src-lks1-2",
+        outlet: "ESPNcricinfo",
+        outletDomain: "espncricinfo.com",
+        headline: "Hasaranga masterclass leaves Australia stunned in Champions Trophy opener",
+        snippet:
+          "ESPNcricinfo's match report details how Hasaranga's variations and the pitch conditions combined to produce one of Sri Lanka cricket's finest recent victories.",
+        url: "https://espncricinfo.com",
+        publishedAt: "2024-11-15T15:00:00Z",
+        tone: "neutral",
+      },
+      {
+        id: "src-lks1-3",
+        outlet: "Sydney Morning Herald",
+        outletDomain: "smh.com.au",
+        headline: "Shock defeat exposes Australia's middle-order frailty",
+        snippet:
+          "Australia's top order collapsed against the turning ball, with the Herald's cricket reporter questioning the team's preparation for subcontinental conditions.",
+        url: "https://smh.com.au",
+        publishedAt: "2024-11-15T18:00:00Z",
+        tone: "critical",
+      },
+      {
+        id: "src-lks1-4",
+        outlet: "BBC Sport",
+        outletDomain: "bbc.com",
+        headline: "Sri Lanka cricket's renaissance: Hasaranga leads the charge",
+        snippet:
+          "The BBC analyses how Sri Lanka has rebuilt since the 2022 economic crisis disrupted cricketing infrastructure, and what this result means for the team's tournament prospects.",
+        url: "https://bbc.com",
+        publishedAt: "2024-11-15T20:00:00Z",
+        tone: "favorable",
+      },
+    ],
+    tags: ["sri lanka", "cricket", "ICC", "Champions Trophy", "Hasaranga"],
+  },
+  {
+    id: "story-lk-s-002",
+    title: "Sri Lanka Rugby Team Qualifies for Asia Rugby Championship Final",
+    summary:
+      "The Sri Lanka national rugby union team secured a place in the Asia Rugby Championship Division I final with a commanding win over Hong Kong, marking their best performance in a decade.",
+    category: "sports",
+    region: "lk" as const,
+    isBreaking: false,
+    imageUrl:
+      "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&q=80",
+    publishedRange: { from: "2024-11-13T10:00:00Z", to: "2024-11-13T18:00:00Z" },
+    sources: [
+      {
+        id: "src-lks2-1",
+        outlet: "Ceylon Today",
+        outletDomain: "ceylontoday.lk",
+        headline: "Rugby Tuskers storm into Asia Championship final",
+        snippet:
+          "Sri Lanka's national rugby team produced a disciplined 28-14 victory, with the forwards dominating the set piece and scrum-half Aslam Ibrahim controlling the tempo.",
+        url: "https://ceylontoday.lk",
+        publishedAt: "2024-11-13T10:00:00Z",
+        tone: "favorable",
+      },
+      {
+        id: "src-lks2-2",
+        outlet: "Asia Rugby",
+        outletDomain: "asiarugby.com",
+        headline: "Sri Lanka and Japan set for title showdown in Colombo",
+        snippet:
+          "Asia Rugby's official report confirms the final fixture details, noting that Sri Lanka's home advantage at Racecourse Grounds could prove decisive against a stronger Japan side.",
+        url: "https://asiarugby.com",
+        publishedAt: "2024-11-13T14:00:00Z",
+        tone: "neutral",
+      },
+    ],
+    tags: ["sri lanka", "rugby", "Asia Rugby Championship", "sports"],
+  },
+  {
+    id: "story-lk-s-003",
+    title: "Colombo Marathon Draws Record 15,000 Runners from 40 Countries",
+    summary:
+      "The annual Colombo International Marathon set a new participation record, with Ethiopian athlete Tigist Assefa setting a new course record and Sri Lankan runner Niluka Gimhana achieving a personal best.",
+    category: "sports",
+    region: "lk" as const,
+    isBreaking: false,
+    imageUrl:
+      "https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?w=800&q=80",
+    publishedRange: { from: "2024-11-10T05:00:00Z", to: "2024-11-10T14:00:00Z" },
+    sources: [
+      {
+        id: "src-lks3-1",
+        outlet: "Colombo Gazette",
+        outletDomain: "colombogazette.com",
+        headline: "Record crowd, record times at Colombo International Marathon",
+        snippet:
+          "The Galle Face seafront course drew its largest-ever field, with participants ranging from elite international runners to local fun runners, in an event the tourism ministry called a major showcase for Colombo.",
+        url: "https://colombogazette.com",
+        publishedAt: "2024-11-10T05:00:00Z",
+        tone: "favorable",
+      },
+      {
+        id: "src-lks3-2",
+        outlet: "Daily Mirror Sri Lanka",
+        outletDomain: "dailymirror.lk",
+        headline: "Gimhana's sub-2:20 puts him in contention for Asian Games selection",
+        snippet:
+          "Athletics Sri Lanka officials confirmed that Niluka Gimhana's performance meets the qualifying standard for the upcoming Asian Games, making him a likely pick for the national team.",
+        url: "https://dailymirror.lk",
+        publishedAt: "2024-11-10T10:00:00Z",
+        tone: "favorable",
+      },
+    ],
+    tags: ["sri lanka", "marathon", "Colombo", "athletics", "sports"],
   },
 ];
 
@@ -780,7 +1104,7 @@ export const MOCK_ANALYSIS: Record<string, AIAnalysis> = {
       },
       {
         outlet: "NPR",
-        angle: "Centers the story on impact to ordinary consumers — mortgage rates, car loans, credit cards — rather than market or macro framing",
+        angle: "Centers the story on impact to ordinary consumers â€” mortgage rates, car loans, credit cards â€” rather than market or macro framing",
       },
     ],
     missingContext: [
@@ -792,3 +1116,4 @@ export const MOCK_ANALYSIS: Record<string, AIAnalysis> = {
     generatedAt: new Date().toISOString(),
   },
 };
+

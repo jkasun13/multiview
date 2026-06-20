@@ -1,39 +1,24 @@
 import type { Story, SourceArticle, ToneType } from "@/types";
+import { SRI_LANKA_CATEGORIES } from "@/types";
+
+// How old a story can be (in ms) before it stops being "breaking"
+const BREAKING_WINDOW_MS = 3 * 60 * 60 * 1000; // 3 hours
 
 export interface NewsProvider {
   fetchStoriesByCategory(category: string, pageSize?: number): Promise<Story[]>;
+  fetchBreakingStories(pageSize?: number): Promise<Story[]>;
   searchStories(query: string, pageSize?: number): Promise<Story[]>;
 }
 
 function guessTone(title: string, description: string): ToneType {
   const text = `${title} ${description}`.toLowerCase();
   const criticalWords = [
-    "fail",
-    "crisis",
-    "scandal",
-    "controversy",
-    "condemn",
-    "blasts",
-    "slams",
-    "accuse",
-    "warn",
-    "problem",
-    "threat",
-    "collapse",
-    "disaster",
+    "fail", "crisis", "scandal", "controversy", "condemn", "blasts",
+    "slams", "accuse", "warn", "problem", "threat", "collapse", "disaster",
   ];
   const favorableWords = [
-    "breakthrough",
-    "success",
-    "win",
-    "growth",
-    "record",
-    "celebrate",
-    "achieve",
-    "boost",
-    "improve",
-    "progress",
-    "innovative",
+    "breakthrough", "success", "win", "growth", "record", "celebrate",
+    "achieve", "boost", "improve", "progress", "innovative",
   ];
   const criticalScore = criticalWords.filter((w) => text.includes(w)).length;
   const favorableScore = favorableWords.filter((w) => text.includes(w)).length;
@@ -51,9 +36,11 @@ function extractDomain(url: string): string {
   }
 }
 
-function groupArticlesIntoStories(
-  articles: NewsAPIArticle[]
-): NewsAPIArticle[][] {
+function isBreakingStory(publishedAt: string): boolean {
+  return Date.now() - new Date(publishedAt).getTime() < BREAKING_WINDOW_MS;
+}
+
+function groupArticlesIntoStories(articles: NewsAPIArticle[]): NewsAPIArticle[][] {
   const groups: NewsAPIArticle[][] = [];
   const used = new Set<number>();
 
@@ -63,18 +50,12 @@ function groupArticlesIntoStories(
     used.add(i);
 
     const titleWords = new Set(
-      articles[i].title
-        .toLowerCase()
-        .split(/\s+/)
-        .filter((w) => w.length > 4)
+      articles[i].title.toLowerCase().split(/\s+/).filter((w) => w.length > 4)
     );
 
     for (let j = i + 1; j < articles.length; j++) {
       if (used.has(j)) continue;
-      const otherWords = articles[j].title
-        .toLowerCase()
-        .split(/\s+/)
-        .filter((w) => w.length > 4);
+      const otherWords = articles[j].title.toLowerCase().split(/\s+/).filter((w) => w.length > 4);
       const overlap = otherWords.filter((w) => titleWords.has(w)).length;
       const similarity = overlap / Math.max(titleWords.size, otherWords.length);
       if (similarity >= 0.35) {
@@ -120,23 +101,28 @@ function articleToSource(article: NewsAPIArticle, index: number): SourceArticle 
   };
 }
 
-function groupToStory(group: NewsAPIArticle[], index: number, category: string): Story {
+function groupToStory(
+  group: NewsAPIArticle[],
+  index: number,
+  category: string,
+  region: "lk" | "world"
+): Story {
   const primary = group[0];
   const dates = group.map((a) => a.publishedAt).sort();
   const sources = group.map((a, i) => articleToSource(a, i));
+  const breaking = isBreakingStory(dates[dates.length - 1]);
 
   return {
     id: `story-${category}-${index}-${Date.now()}`,
     title: primary.title,
     summary: primary.description || "",
     category,
+    region,
+    isBreaking: breaking,
     imageUrl:
       group.find((a) => a.urlToImage)?.urlToImage ||
-      `https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80`,
-    publishedRange: {
-      from: dates[0],
-      to: dates[dates.length - 1],
-    },
+      "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80",
+    publishedRange: { from: dates[0], to: dates[dates.length - 1] },
     sources,
     tags: [],
   };
@@ -150,13 +136,18 @@ export class NewsAPIProvider implements NewsProvider {
     this.apiKey = apiKey;
   }
 
-  private async fetch<T>(path: string, params: Record<string, string>): Promise<T> {
+  private async fetchData<T>(
+    path: string,
+    params: Record<string, string>,
+    cacheSeconds: number
+  ): Promise<T> {
     const url = new URL(`${this.baseUrl}${path}`);
     Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, v));
     url.searchParams.set("apiKey", this.apiKey);
 
     const res = await fetch(url.toString(), {
-      next: { revalidate: 10800 },
+      next: cacheSeconds === 0 ? undefined : { revalidate: cacheSeconds },
+      cache: cacheSeconds === 0 ? "no-store" : undefined,
     });
 
     if (!res.ok) {
@@ -167,8 +158,11 @@ export class NewsAPIProvider implements NewsProvider {
   }
 
   async fetchStoriesByCategory(category: string, pageSize = 40): Promise<Story[]> {
-    const categoryMap: Record<string, string> = {
-      politics: "politics",
+    const isSriLanka = (SRI_LANKA_CATEGORIES as string[]).includes(category);
+    const region: "lk" | "world" = isSriLanka ? "lk" : "world";
+
+    const newsApiCategoryMap: Record<string, string> = {
+      politics: "general",
       technology: "technology",
       business: "business",
       world: "general",
@@ -178,13 +172,22 @@ export class NewsAPIProvider implements NewsProvider {
       entertainment: "entertainment",
     };
 
-    const newsCategory = categoryMap[category] || "general";
+    const newsCategory = newsApiCategoryMap[category] || "general";
 
-    const data = await this.fetch<NewsAPIResponse>("/top-headlines", {
+    const params: Record<string, string> = {
       category: newsCategory,
       language: "en",
       pageSize: String(pageSize),
-    });
+    };
+
+    if (isSriLanka) {
+      // Country-specific: use country=lk and also add "Sri Lanka" as a search term
+      // NewsAPI /top-headlines supports country param
+      params.country = "lk";
+      delete params.language; // country + language not allowed together
+    }
+
+    const data = await this.fetchData<NewsAPIResponse>("/top-headlines", params, 18000);
 
     if (data.status !== "ok") {
       throw new Error(data.message || "Failed to fetch stories");
@@ -197,17 +200,39 @@ export class NewsAPIProvider implements NewsProvider {
 
     return groups
       .filter((g) => g.length >= 1)
-      .map((g, i) => groupToStory(g, i, category))
+      .map((g, i) => groupToStory(g, i, category, region))
       .slice(0, 12);
   }
 
+  async fetchBreakingStories(pageSize = 20): Promise<Story[]> {
+    // Fetch latest top headlines with no cache for all key categories
+    const data = await this.fetchData<NewsAPIResponse>(
+      "/top-headlines",
+      { language: "en", pageSize: String(pageSize), sortBy: "publishedAt" },
+      0 // no-store — always fresh
+    );
+
+    if (data.status !== "ok") return [];
+
+    const valid = data.articles.filter(
+      (a) => a.title && a.title !== "[Removed]" && a.url
+    );
+
+    const groups = groupArticlesIntoStories(valid);
+
+    return groups
+      .filter((g) => g.length >= 1)
+      .map((g, i) => groupToStory(g, i, "world", "world"))
+      .filter((s) => s.isBreaking)
+      .slice(0, 6);
+  }
+
   async searchStories(query: string, pageSize = 40): Promise<Story[]> {
-    const data = await this.fetch<NewsAPIResponse>("/everything", {
-      q: query,
-      language: "en",
-      sortBy: "publishedAt",
-      pageSize: String(pageSize),
-    });
+    const data = await this.fetchData<NewsAPIResponse>(
+      "/everything",
+      { q: query, language: "en", sortBy: "publishedAt", pageSize: String(pageSize) },
+      18000
+    );
 
     if (data.status !== "ok") {
       throw new Error(data.message || "Failed to search stories");
@@ -220,7 +245,7 @@ export class NewsAPIProvider implements NewsProvider {
 
     return groups
       .filter((g) => g.length >= 1)
-      .map((g, i) => groupToStory(g, i, "search"))
+      .map((g, i) => groupToStory(g, i, "search", "world"))
       .slice(0, 12);
   }
 }

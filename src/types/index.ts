@@ -17,6 +17,8 @@ export interface Story {
   title: string;
   summary: string;
   category: string;
+  region: "lk" | "world"; // lk = Sri Lanka, world = international
+  isBreaking: boolean;
   imageUrl: string;
   publishedRange: {
     from: string;
@@ -50,13 +52,16 @@ export type Category =
   | "sports"
   | "entertainment";
 
-export const CATEGORIES: { slug: Category; label: string }[] = [
-  { slug: "politics", label: "Politics" },
-  { slug: "technology", label: "Tech" },
-  { slug: "business", label: "Business" },
-  { slug: "world", label: "World" },
-  { slug: "science", label: "Science" },
-  { slug: "health", label: "Health" },
-  { slug: "sports", label: "Sports" },
-  { slug: "entertainment", label: "Entertainment" },
+export const CATEGORIES: { slug: Category; label: string; region?: "lk" | "world" }[] = [
+  { slug: "politics", label: "Politics", region: "lk" },
+  { slug: "sports",   label: "Sports",   region: "lk" },
+  { slug: "technology",   label: "Tech"          },
+  { slug: "business",     label: "Business"      },
+  { slug: "world",        label: "World"         },
+  { slug: "science",      label: "Science"       },
+  { slug: "health",       label: "Health"        },
+  { slug: "entertainment",label: "Entertainment" },
 ];
+
+// Categories that are Sri Lanka-specific
+export const SRI_LANKA_CATEGORIES: Category[] = ["politics", "sports"];

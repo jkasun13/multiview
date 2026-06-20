@@ -5,10 +5,10 @@ import { ArrowRight, TrendingUp, Globe2 } from "lucide-react";
 import StoryCard from "@/components/story/StoryCard";
 import CategoryPill from "@/components/ui/CategoryPill";
 import { MOCK_STORIES } from "@/lib/mock-data";
-import { CATEGORIES } from "@/types";
+import { CATEGORIES, SRI_LANKA_CATEGORIES } from "@/types";
 import type { Story } from "@/types";
 
-export const revalidate = 10800; // 3 hours
+export const revalidate = 18000; // 5 hours
 
 export const metadata: Metadata = {
   title: "Multiview — Compare How News Outlets Cover the Same Story",
@@ -121,10 +121,13 @@ export default async function HomePage() {
       <section className="border-b border-gray-100 bg-[#F8F6F3] sticky top-16 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <div className="flex items-center gap-2 overflow-x-auto pb-0.5">
-            <span className="text-xs font-bold uppercase tracking-wider text-gray-400 mr-1 shrink-0">
-              Topics
-            </span>
-            {CATEGORIES.map((cat) => (
+            <span className="text-xs font-bold uppercase tracking-wider text-gray-400 shrink-0">🇱🇰</span>
+            {CATEGORIES.filter((c) => (SRI_LANKA_CATEGORIES as string[]).includes(c.slug)).map((cat) => (
+              <CategoryPill key={cat.slug} slug={cat.slug} label={cat.label} />
+            ))}
+            <div className="w-px h-5 bg-gray-300 mx-1 shrink-0" />
+            <span className="text-xs font-bold uppercase tracking-wider text-gray-400 shrink-0">🌍</span>
+            {CATEGORIES.filter((c) => !(SRI_LANKA_CATEGORIES as string[]).includes(c.slug)).map((cat) => (
               <CategoryPill key={cat.slug} slug={cat.slug} label={cat.label} />
             ))}
           </div>

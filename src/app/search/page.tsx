@@ -16,7 +16,7 @@ async function searchStories(query: string): Promise<Story[]> {
         : "http://localhost:3000");
     const res = await fetch(
       `${baseUrl}/api/stories?q=${encodeURIComponent(query)}`,
-      { next: { revalidate: 10800 } }
+      { next: { revalidate: 18000 } }
     );
     if (!res.ok) {
       return MOCK_STORIES.filter(

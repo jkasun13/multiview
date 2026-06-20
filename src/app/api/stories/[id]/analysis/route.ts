@@ -1,23 +1,27 @@
 import { NextRequest, NextResponse } from "next/server";
 import { MOCK_STORIES, MOCK_ANALYSIS } from "@/lib/mock-data";
-import { getCachedAnalysis, setCachedAnalysis } from "@/lib/analysis-cache";
-import type { AIAnalysis, Story } from "@/types";
+import { getAnalysis, setAnalysis, getStoryById } from "@/lib/db";
+import type { Story } from "@/types";
+import Anthropic from "@anthropic-ai/sdk";
+
+export const dynamic = "force-dynamic";
 
 async function findStory(id: string): Promise<Story | null> {
-  // First check mock data
-  const mock = MOCK_STORIES.find((s) => s.id === id);
-  if (mock) return mock;
-  return null;
+  // 1. DB (pipeline-stored stories)
+  try {
+    const dbStory = await getStoryById(id);
+    if (dbStory) return dbStory;
+  } catch {}
+  // 2. Mock data
+  return MOCK_STORIES.find((s) => s.id === id) ?? null;
 }
 
-async function generateAnalysis(story: Story): Promise<AIAnalysis> {
-  const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) {
+async function generateAnalysis(story: Story) {
+  if (!process.env.ANTHROPIC_API_KEY) {
     throw new Error("ANTHROPIC_API_KEY is not set");
   }
 
-  const Anthropic = (await import("@anthropic-ai/sdk")).default;
-  const client = new Anthropic({ apiKey });
+  const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
   const sourceSummaries = story.sources
     .map(
@@ -26,36 +30,35 @@ async function generateAnalysis(story: Story): Promise<AIAnalysis> {
     )
     .join("\n\n");
 
-  const prompt = `You are a journalism analyst. Given the following news coverage of the same story from multiple outlets, produce a structured analysis.
+  const msg = await client.messages.create({
+    model: "claude-haiku-4-5-20251001",
+    max_tokens: 1024,
+    messages: [
+      {
+        role: "user",
+        content: `You are a journalism analyst. Given coverage of the same story from multiple outlets, produce a structured analysis.
 
 Story: "${story.title}"
 
 ${sourceSummaries}
 
-Return ONLY a valid JSON object with exactly these three keys:
+Return ONLY valid JSON with exactly these three keys:
 {
-  "agree": ["bullet 1", "bullet 2", ...],
-  "differ": [{"outlet": "Outlet Name", "angle": "their specific angle or framing"}, ...],
-  "missingContext": ["bullet 1", "bullet 2", ...]
+  "agree": ["bullet 1", "bullet 2"],
+  "differ": [{"outlet": "Name", "angle": "their specific angle"}],
+  "missingContext": ["bullet 1", "bullet 2"]
 }
 
 Rules:
 - "agree": 2-4 factual points all sources confirm
-- "differ": one entry per source that has a notably distinct angle/framing (skip sources with purely neutral/generic framing)
-- "missingContext": 2-4 important facts, context, or perspectives absent from all/most coverage
-- Be specific, name outlets when relevant, avoid vague generalities
-- Return only the JSON object, no prose, no markdown code fences`;
-
-  const message = await client.messages.create({
-    model: "claude-haiku-4-5-20251001",
-    max_tokens: 1024,
-    messages: [{ role: "user", content: prompt }],
+- "differ": one entry per source with a notably distinct framing
+- "missingContext": 2-4 facts/context absent from coverage
+- Return only JSON, no markdown fences`,
+      },
+    ],
   });
 
-  const text =
-    message.content[0].type === "text" ? message.content[0].text : "";
-
-  // Strip any accidental markdown code fences
+  const text = msg.content[0].type === "text" ? msg.content[0].text.trim() : "{}";
   const cleaned = text.replace(/```json\n?/g, "").replace(/```\n?/g, "").trim();
   const parsed = JSON.parse(cleaned);
 
@@ -73,39 +76,37 @@ export async function GET(
 ) {
   const { id } = await params;
 
-  // Check cache first
-  const cached = getCachedAnalysis(id);
-  if (cached) {
-    return NextResponse.json(cached);
-  }
+  // 1. DB cache
+  try {
+    const cached = await getAnalysis(id);
+    if (cached) return NextResponse.json(cached);
+  } catch {}
 
-  // Check mock analysis
+  // 2. Mock analysis
   if (MOCK_ANALYSIS[id]) {
-    setCachedAnalysis(id, MOCK_ANALYSIS[id]);
+    await setAnalysis(id, MOCK_ANALYSIS[id]).catch(() => {});
     return NextResponse.json(MOCK_ANALYSIS[id]);
   }
 
-  // Find the story
+  // 3. Find story
   const story = await findStory(id);
   if (!story) {
     return NextResponse.json({ error: "Story not found" }, { status: 404 });
   }
 
+  // 4. Generate fresh
   try {
     const analysis = await generateAnalysis(story);
-    setCachedAnalysis(id, analysis);
+    await setAnalysis(id, analysis).catch(() => {});
     return NextResponse.json(analysis);
   } catch (err) {
-    console.error("Analysis generation error:", err);
     const msg = err instanceof Error ? err.message : "Failed to generate analysis";
-
     if (msg.includes("ANTHROPIC_API_KEY")) {
       return NextResponse.json(
         { error: "AI analysis requires ANTHROPIC_API_KEY to be configured." },
         { status: 503 }
       );
     }
-
     return NextResponse.json({ error: msg }, { status: 500 });
   }
 }

@@ -8,6 +8,8 @@ import { MOCK_STORIES } from "@/lib/mock-data";
 import { CATEGORIES } from "@/types";
 import type { Story } from "@/types";
 
+export const revalidate = 10800; // 3 hours
+
 export const metadata: Metadata = {
   title: "Multiview — Compare How News Outlets Cover the Same Story",
 };
@@ -20,7 +22,7 @@ async function getFeaturedStories(): Promise<Story[]> {
         ? `https://${process.env.VERCEL_URL}`
         : "http://localhost:3000");
     const res = await fetch(`${baseUrl}/api/stories?category=technology`, {
-      next: { revalidate: 300 },
+      next: { revalidate: 10800 },
     });
     if (!res.ok) return MOCK_STORIES;
     const data = await res.json();

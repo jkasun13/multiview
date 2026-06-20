@@ -14,7 +14,7 @@ async function getStoriesByCategory(slug: string): Promise<Story[]> {
         ? `https://${process.env.VERCEL_URL}`
         : "http://localhost:3000");
     const res = await fetch(`${baseUrl}/api/stories?category=${slug}`, {
-      next: { revalidate: 300 },
+      next: { revalidate: 10800 },
     });
     if (!res.ok) return MOCK_STORIES;
     const data = await res.json();

@@ -156,7 +156,7 @@ export class NewsAPIProvider implements NewsProvider {
     url.searchParams.set("apiKey", this.apiKey);
 
     const res = await fetch(url.toString(), {
-      next: { revalidate: 300 },
+      next: { revalidate: 10800 },
     });
 
     if (!res.ok) {

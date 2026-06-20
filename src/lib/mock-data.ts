@@ -1084,6 +1084,408 @@ export const MOCK_STORIES: Story[] = [
     ],
     tags: ["sri lanka", "marathon", "Colombo", "athletics", "sports"],
   },
+
+  // --- NEW SRI LANKA POLITICS (June 2025) ---
+  {
+    id: "story-lk-p-004",
+    title: "President AKD Meets Indian PM Modi in New Delhi to Strengthen Bilateral Ties",
+    summary:
+      "President Anura Kumara Dissanayake held high-level talks with Indian Prime Minister Narendra Modi in New Delhi, focusing on debt relief, the Adani energy deal, and a proposed economic partnership corridor between the two nations.",
+    category: "politics",
+    region: "lk" as const,
+    isBreaking: true,
+    imageUrl: "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800&q=80",
+    publishedRange: { from: "2025-06-18T06:00:00Z", to: "2025-06-18T20:00:00Z" },
+    sources: [
+      {
+        id: "src-lkp4-1",
+        outlet: "Daily Mirror Sri Lanka",
+        outletDomain: "dailymirror.lk",
+        headline: "AKD-Modi summit: India pledges continued support for Sri Lanka's recovery",
+        snippet:
+          "President Dissanayake's two-day state visit to India resulted in agreements covering renewable energy investment, fishermen's rights in the Palk Strait, and a concessional credit line for infrastructure projects.",
+        url: "https://dailymirror.lk",
+        publishedAt: "2025-06-18T06:00:00Z",
+        tone: "favorable",
+      },
+      {
+        id: "src-lkp4-2",
+        outlet: "The Island",
+        outletDomain: "island.lk",
+        headline: "Adani port deal back on table as AKD visits Modi",
+        snippet:
+          "The Island's diplomatic correspondent reports that the controversial Adani Group investment in Colombo port's West Container Terminal featured prominently in bilateral discussions, despite earlier domestic opposition.",
+        url: "https://island.lk",
+        publishedAt: "2025-06-18T09:00:00Z",
+        tone: "mixed",
+      },
+      {
+        id: "src-lkp4-3",
+        outlet: "Reuters",
+        outletDomain: "reuters.com",
+        headline: "Sri Lanka and India ink energy, connectivity deals at summit",
+        snippet:
+          "The two countries signed four MoUs covering power grid interconnection, a digital payments corridor, fisheries cooperation, and a $300 million Indian credit facility for northern Sri Lanka infrastructure.",
+        url: "https://reuters.com",
+        publishedAt: "2025-06-18T12:00:00Z",
+        tone: "neutral",
+      },
+      {
+        id: "src-lkp4-4",
+        outlet: "Al Jazeera",
+        outletDomain: "aljazeera.com",
+        headline: "Can Sri Lanka balance India and China as it seeks economic recovery?",
+        snippet:
+          "Al Jazeera analyses Sri Lanka's diplomatic tightrope: deepening ties with India while maintaining Chinese investments in ports, roads, and the Hambantota zone.",
+        url: "https://aljazeera.com",
+        publishedAt: "2025-06-18T16:00:00Z",
+        tone: "neutral",
+      },
+    ],
+    tags: ["sri lanka", "india", "AKD", "Modi", "bilateral", "diplomacy"],
+  },
+  {
+    id: "story-lk-p-005",
+    title: "Sri Lanka Budget 2025: Tax Hikes, Public Sector Wage Freeze Spark Protests",
+    summary:
+      "The government's mid-year budget revision introduced VAT increases on essential goods and extended the public sector wage freeze, prompting trade union-led protests outside the Finance Ministry in Colombo.",
+    category: "politics",
+    region: "lk" as const,
+    isBreaking: false,
+    imageUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80",
+    publishedRange: { from: "2025-06-15T08:00:00Z", to: "2025-06-15T21:00:00Z" },
+    sources: [
+      {
+        id: "src-lkp5-1",
+        outlet: "Daily FT",
+        outletDomain: "ft.lk",
+        headline: "Mid-year budget revision raises VAT, extends wage freeze under IMF pressure",
+        snippet:
+          "Finance Minister Shehan Semasinghe defended the measures as unavoidable conditions of the IMF programme, arguing that fiscal discipline now will enable wage increases from 2026 onwards.",
+        url: "https://ft.lk",
+        publishedAt: "2025-06-15T08:00:00Z",
+        tone: "neutral",
+      },
+      {
+        id: "src-lkp5-2",
+        outlet: "Ceylon Today",
+        outletDomain: "ceylontoday.lk",
+        headline: "Unions call nationwide strike over wage freeze extension",
+        snippet:
+          "The Joint Trade Union Alliance announced a 48-hour strike across state banks, schools, and hospitals after parliament approved the budget revision without any relief for public sector workers.",
+        url: "https://ceylontoday.lk",
+        publishedAt: "2025-06-15T11:00:00Z",
+        tone: "critical",
+      },
+      {
+        id: "src-lkp5-3",
+        outlet: "BBC Sinhala",
+        outletDomain: "bbc.com",
+        headline: "Sri Lanka budget squeeze: who bears the burden?",
+        snippet:
+          "BBC Sinhala surveys economists and ordinary citizens about the real-world impact of higher taxes on food and fuel, and the continued freeze on government salaries.",
+        url: "https://bbc.com",
+        publishedAt: "2025-06-15T15:00:00Z",
+        tone: "mixed",
+      },
+    ],
+    tags: ["sri lanka", "budget", "IMF", "VAT", "protests", "economy"],
+  },
+  {
+    id: "story-lk-p-006",
+    title: "SJB and NPP Clash Over Local Government Election Date",
+    summary:
+      "The main opposition Samagi Jana Balawegaya accused the ruling NPP government of unconstitutionally delaying local government elections, filing a petition in the Supreme Court demanding a date be set within 60 days.",
+    category: "politics",
+    region: "lk" as const,
+    isBreaking: false,
+    imageUrl: "https://images.unsplash.com/photo-1555848962-6e79363ec58f?w=800&q=80",
+    publishedRange: { from: "2025-06-14T07:00:00Z", to: "2025-06-14T19:00:00Z" },
+    sources: [
+      {
+        id: "src-lkp6-1",
+        outlet: "Colombo Gazette",
+        outletDomain: "colombogazette.com",
+        headline: "SJB files SC petition demanding local polls within 60 days",
+        snippet:
+          "The petition argues that the Elections Commission's continued deferral of local government polls violates citizens' fundamental right to vote and undermines democratic accountability at the grassroots level.",
+        url: "https://colombogazette.com",
+        publishedAt: "2025-06-14T07:00:00Z",
+        tone: "critical",
+      },
+      {
+        id: "src-lkp6-2",
+        outlet: "The Island",
+        outletDomain: "island.lk",
+        headline: "NPP defends election delay citing financial constraints, EC independence",
+        snippet:
+          "Government spokesman Nalinda Jayatissa said local elections would be held once the Elections Commission confirms readiness, dismissing the SJB petition as politically motivated.",
+        url: "https://island.lk",
+        publishedAt: "2025-06-14T11:00:00Z",
+        tone: "neutral",
+      },
+      {
+        id: "src-lkp6-3",
+        outlet: "Daily Mirror Sri Lanka",
+        outletDomain: "dailymirror.lk",
+        headline: "Supreme Court to hear election delay petition next week",
+        snippet:
+          "The Supreme Court granted leave to proceed and scheduled a hearing for June 23, marking the first major constitutional challenge to the NPP government since it took office.",
+        url: "https://dailymirror.lk",
+        publishedAt: "2025-06-14T15:00:00Z",
+        tone: "neutral",
+      },
+    ],
+    tags: ["sri lanka", "elections", "SJB", "NPP", "supreme court", "democracy"],
+  },
+  {
+    id: "story-lk-p-007",
+    title: "Sri Lanka Formally Exits IMF Watch List After Completing Debt Restructuring",
+    summary:
+      "The International Monetary Fund confirmed Sri Lanka has successfully completed its external debt restructuring process, removing the country from enhanced monitoring and unlocking the final tranche of its $2.9 billion bailout.",
+    category: "politics",
+    region: "lk" as const,
+    isBreaking: true,
+    imageUrl: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+    publishedRange: { from: "2025-06-17T09:00:00Z", to: "2025-06-17T22:00:00Z" },
+    sources: [
+      {
+        id: "src-lkp7-1",
+        outlet: "Daily FT",
+        outletDomain: "ft.lk",
+        headline: "Sri Lanka exits IMF enhanced monitoring — a milestone in recovery",
+        snippet:
+          "The IMF's announcement marks the formal end of the most intensive phase of oversight, with the Fund citing significant progress on fiscal consolidation, state enterprise reform, and debt sustainability.",
+        url: "https://ft.lk",
+        publishedAt: "2025-06-17T09:00:00Z",
+        tone: "favorable",
+      },
+      {
+        id: "src-lkp7-2",
+        outlet: "Financial Times",
+        outletDomain: "ft.com",
+        headline: "Sri Lanka's debt deal: a model for other distressed economies?",
+        snippet:
+          "The FT analyses whether Sri Lanka's 'comparability of treatment' debt settlement with China, India, and Paris Club creditors can serve as a template for other developing nations facing insolvency.",
+        url: "https://ft.com",
+        publishedAt: "2025-06-17T13:00:00Z",
+        tone: "favorable",
+      },
+      {
+        id: "src-lkp7-3",
+        outlet: "Colombo Gazette",
+        outletDomain: "colombogazette.com",
+        headline: "Ordinary Sri Lankans ask: when will the recovery reach us?",
+        snippet:
+          "Despite the macro milestone, surveys show most Sri Lankan households still face higher living costs, reduced public services, and stagnant wages — raising questions about who benefits from the recovery.",
+        url: "https://colombogazette.com",
+        publishedAt: "2025-06-17T17:00:00Z",
+        tone: "mixed",
+      },
+    ],
+    tags: ["sri lanka", "IMF", "debt restructuring", "economy", "recovery"],
+  },
+
+  // --- NEW SRI LANKA SPORTS (June 2025) ---
+  {
+    id: "story-lk-s-004",
+    title: "Sri Lanka vs Pakistan T20 Series: Lanka Win Series 3-1 at Home",
+    summary:
+      "Sri Lanka sealed a comprehensive T20 series victory over Pakistan, winning 3-1 at the R. Premadasa Stadium in Colombo, with Pathum Nissanka scoring two half-centuries and Maheesh Theekshana claiming seven wickets across the series.",
+    category: "sports",
+    region: "lk" as const,
+    isBreaking: true,
+    imageUrl: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=800&q=80",
+    publishedRange: { from: "2025-06-19T14:00:00Z", to: "2025-06-19T23:00:00Z" },
+    sources: [
+      {
+        id: "src-lks4-1",
+        outlet: "ESPNcricinfo",
+        outletDomain: "espncricinfo.com",
+        headline: "Sri Lanka complete dominant T20 series win over Pakistan",
+        snippet:
+          "A mature batting display from Nissanka and smart death bowling by Theekshana sealed a 3-1 series result, with Sri Lanka captain Charith Asalanka hailing the performance as the team's best in two years.",
+        url: "https://espncricinfo.com",
+        publishedAt: "2025-06-19T14:00:00Z",
+        tone: "favorable",
+      },
+      {
+        id: "src-lks4-2",
+        outlet: "Daily Mirror Sri Lanka",
+        outletDomain: "dailymirror.lk",
+        headline: "Lanka T20 heroes — Nissanka and Theekshana shine in series win",
+        snippet:
+          "Sri Lanka's homegrown talent delivered when it mattered most, as a packed R. Premadasa gave the team a rousing send-off ahead of next month's Asia Cup.",
+        url: "https://dailymirror.lk",
+        publishedAt: "2025-06-19T16:00:00Z",
+        tone: "favorable",
+      },
+      {
+        id: "src-lks4-3",
+        outlet: "Dawn Pakistan",
+        outletDomain: "dawn.com",
+        headline: "Pakistan's T20 struggles deepen after Sri Lanka series defeat",
+        snippet:
+          "Pakistan's selectors face difficult questions after a fourth T20 series loss in Asia this year, with the batting middle order once again failing to anchor innings under pressure.",
+        url: "https://dawn.com",
+        publishedAt: "2025-06-19T19:00:00Z",
+        tone: "critical",
+      },
+      {
+        id: "src-lks4-4",
+        outlet: "BBC Sport",
+        outletDomain: "bbc.com",
+        headline: "Sri Lanka's T20 revival: what's driving the resurgence?",
+        snippet:
+          "The BBC looks at the coaching changes, youth development pipeline, and tactical shifts that have transformed Sri Lanka into a formidable T20 side over the past 18 months.",
+        url: "https://bbc.com",
+        publishedAt: "2025-06-19T21:00:00Z",
+        tone: "favorable",
+      },
+    ],
+    tags: ["sri lanka", "cricket", "T20", "Pakistan", "Nissanka", "Theekshana"],
+  },
+  {
+    id: "story-lk-s-005",
+    title: "Dilshan Madushanka Named Sri Lanka's ICC Men's Cricketer of the Month",
+    summary:
+      "Left-arm pacer Dilshan Madushanka was awarded the ICC Men's Cricket of the Month award for June 2025 after a series of match-winning performances in both ODI and T20 formats.",
+    category: "sports",
+    region: "lk" as const,
+    isBreaking: false,
+    imageUrl: "https://images.unsplash.com/photo-1540747913346-19212a4b423f?w=800&q=80",
+    publishedRange: { from: "2025-06-16T08:00:00Z", to: "2025-06-16T18:00:00Z" },
+    sources: [
+      {
+        id: "src-lks5-1",
+        outlet: "ICC",
+        outletDomain: "icc-cricket.com",
+        headline: "Madushanka wins ICC Men's Cricketer of the Month — June 2025",
+        snippet:
+          "The ICC cited Madushanka's 14 wickets across six matches in June, including two five-wicket hauls, as the decisive factor in his selection over nominees from India and Australia.",
+        url: "https://icc-cricket.com",
+        publishedAt: "2025-06-16T08:00:00Z",
+        tone: "favorable",
+      },
+      {
+        id: "src-lks5-2",
+        outlet: "Ceylon Today",
+        outletDomain: "ceylontoday.lk",
+        headline: "Pride of Lanka: Madushanka's ICC award is a national moment",
+        snippet:
+          "Reaction from Sri Lanka poured in on social media, with former cricketers Mahela Jayawardena and Kumar Sangakkara both congratulating the young pacer on the global recognition.",
+        url: "https://ceylontoday.lk",
+        publishedAt: "2025-06-16T11:00:00Z",
+        tone: "favorable",
+      },
+      {
+        id: "src-lks5-3",
+        outlet: "ESPNcricinfo",
+        outletDomain: "espncricinfo.com",
+        headline: "What makes Madushanka Sri Lanka's most dangerous bowler right now",
+        snippet:
+          "ESPNcricinfo's analysis examines Madushanka's yorker accuracy, pace variation, and ability to swing the ball late — skills that have made him one of the most effective death bowlers in world cricket.",
+        url: "https://espncricinfo.com",
+        publishedAt: "2025-06-16T15:00:00Z",
+        tone: "favorable",
+      },
+    ],
+    tags: ["sri lanka", "cricket", "Madushanka", "ICC", "award"],
+  },
+  {
+    id: "story-lk-s-006",
+    title: "Sri Lanka Wins Gold at South Asian Games — Athletics and Swimming Lead",
+    summary:
+      "Sri Lanka finished third on the medal table at the 2025 South Asian Games in Dhaka, with athletes claiming 12 gold medals — the country's best ever haul — led by sprinter Yupun Abeykoon and swimmer Matthew Abeysinghe.",
+    category: "sports",
+    region: "lk" as const,
+    isBreaking: false,
+    imageUrl: "https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?w=800&q=80",
+    publishedRange: { from: "2025-06-13T06:00:00Z", to: "2025-06-13T20:00:00Z" },
+    sources: [
+      {
+        id: "src-lks6-1",
+        outlet: "Daily Mirror Sri Lanka",
+        outletDomain: "dailymirror.lk",
+        headline: "Historic gold rush! Sri Lanka's best-ever South Asian Games haul",
+        snippet:
+          "Twelve gold medals across athletics, swimming, boxing, and weightlifting put Sri Lanka third on the table behind India and Pakistan — a landmark result that Sports Minister Roshan Ranasinghe called 'a turning point for Sri Lankan sport'.",
+        url: "https://dailymirror.lk",
+        publishedAt: "2025-06-13T06:00:00Z",
+        tone: "favorable",
+      },
+      {
+        id: "src-lks6-2",
+        outlet: "Colombo Gazette",
+        outletDomain: "colombogazette.com",
+        headline: "Yupun Abeykoon sprint double puts Sri Lanka on the map",
+        snippet:
+          "Yupun Abeykoon claimed gold in both the 100m and 200m, with his 9.96 second 100m clocking described by coaches as a potential Asian record qualifier if ratified under World Athletics conditions.",
+        url: "https://colombogazette.com",
+        publishedAt: "2025-06-13T10:00:00Z",
+        tone: "favorable",
+      },
+      {
+        id: "src-lks6-3",
+        outlet: "South Asian Games Official",
+        outletDomain: "southasiangames.org",
+        headline: "2025 South Asian Games final medal table — India tops, Sri Lanka third",
+        snippet:
+          "The official Games report confirms Sri Lanka's 12 gold, 9 silver, 14 bronze final tally — a near-doubling of their previous best performance and a strong signal ahead of the 2026 Asian Games.",
+        url: "https://southasiangames.org",
+        publishedAt: "2025-06-13T16:00:00Z",
+        tone: "neutral",
+      },
+    ],
+    tags: ["sri lanka", "South Asian Games", "Abeykoon", "athletics", "Abeysinghe", "swimming"],
+  },
+  {
+    id: "story-lk-s-007",
+    title: "SL Football: National Team Qualifies for SAFF Championship Semifinals",
+    summary:
+      "Sri Lanka's national football team advanced to the semifinals of the SAFF Championship for the first time in eight years, beating Nepal 2-1 in Kathmandu in a tense group-stage decider.",
+    category: "sports",
+    region: "lk" as const,
+    isBreaking: false,
+    imageUrl: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&q=80",
+    publishedRange: { from: "2025-06-12T15:00:00Z", to: "2025-06-12T22:00:00Z" },
+    sources: [
+      {
+        id: "src-lks7-1",
+        outlet: "Ceylon Today",
+        outletDomain: "ceylontoday.lk",
+        headline: "Lanka Lions roar into SAFF semis with dramatic Nepal win",
+        snippet:
+          "A 90th-minute winner from substitute Channa Ediri sent Sri Lanka into the SAFF Championship semifinals for the first time since 2017, sparking celebrations across the island.",
+        url: "https://ceylontoday.lk",
+        publishedAt: "2025-06-12T15:00:00Z",
+        tone: "favorable",
+      },
+      {
+        id: "src-lks7-2",
+        outlet: "SAFF Official",
+        outletDomain: "saff.com.bd",
+        headline: "SAFF Championship semifinal lineup confirmed",
+        snippet:
+          "Sri Lanka will face India in one semifinal while Bangladesh take on Maldives in the other, with matches scheduled for June 16 at the Dashrath Stadium in Kathmandu.",
+        url: "https://saff.com.bd",
+        publishedAt: "2025-06-12T18:00:00Z",
+        tone: "neutral",
+      },
+      {
+        id: "src-lks7-3",
+        outlet: "Colombo Gazette",
+        outletDomain: "colombogazette.com",
+        headline: "Football fans dare to dream: Sri Lanka in SAFF semis after 8 years",
+        snippet:
+          "Fans gathered at the Sugathadasa Stadium to watch the match on big screens erupted in scenes not seen since the 2008 tournament, with the national team's youth development programme finally bearing fruit.",
+        url: "https://colombogazette.com",
+        publishedAt: "2025-06-12T20:00:00Z",
+        tone: "favorable",
+      },
+    ],
+    tags: ["sri lanka", "football", "SAFF Championship", "Nepal", "soccer"],
+  },
 ];
 
 export const MOCK_ANALYSIS: Record<string, AIAnalysis> = {
